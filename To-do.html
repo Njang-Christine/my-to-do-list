@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="Style.css">
+  <script src="Script.js" defer></script>
+  <title>TASK MANAGEMENT SYSTEM</title>
+</head>
+<body>
+  <div class="app">
+    <div class="brand">
+      <div>
+        <h1>TO-DO LIST</h1>
+        <p class="tagline">Change is not change untill <br>the change changes the changer.</p>
+      </div>
+    </div>
+
+    <section id="authPanel" class="auth-panel card">
+      <div class="header-row">
+        <h2>Welcome back</h2>
+        <span class="status-pill">Secure local auth</span>
+      </div>
+
+      <div class="auth-tabs">
+        <button id="loginTab" class="tab-btn active" type="button">Login</button>
+        <button id="registerTab" class="tab-btn" type="button">Register</button>
+      </div>
+
+      <form id="loginForm">
+        <label>
+          Email address
+          <input type="email" id="loginEmail" required placeholder="hello@example.com" />
+        </label>
+        <label>
+          Password
+          <input type="password" id="loginPassword" required placeholder="Enter password" />
+        </label>
+        <button class="button primary" type="submit">Login</button>
+      </form>
+
+      <form id="registerForm" class="hidden">
+        <label>
+          Full name
+          <input type="text" id="registerName" required placeholder="Your name" />
+        </label>
+        <label>
+          Email address
+          <input type="email" id="registerEmail" required placeholder="hello@example.com" />
+        </label>
+        <label>
+          Password
+          <input type="password" id="registerPassword" required placeholder="Create password" />
+        </label>
+        <button class="button primary" type="submit">Register</button>
+      </form>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="top-strip">
+        <div>
+          <p class="note">Logged in as <strong id="welcomeName"></strong></p>
+          <h2> Task Manager </h2>
+        </div>
+        <button id="logoutBtn" class="button secondary">Logout</button>
+      </div>
+
+      <div class="task-grid">
+        <div class="card">
+          <div class="header-row">
+            <div>
+              <h2 id="formHeading">Create a new task</h2>
+              <p class="note">Add a task with deadline, duration and reminder settings.</p>
+            </div>
+          </div>
+
+          <form id="taskForm">
+            <label>
+              Task title
+              <input type="text" id="taskTitle" required placeholder="Example: Finish report" />
+            </label>
+            <label>
+              Description
+              <textarea id="taskDescription" placeholder="Add details... (optional)"></textarea>
+            </label>
+            <label>
+              Due date and time
+              <input type="datetime-local" id="taskDueDate" required />
+            </label>
+            <label>
+              Time allocation (minutes)
+              <input type="number" id="taskDuration" min="5" step="5" required placeholder="60" />
+            </label>
+            <label>
+              Reminder before due time (minutes)
+              <input type="number" id="taskReminder" min="0" step="1" value="30" />
+            </label>
+            <label>
+              Reminder email address
+              <input type="email" id="taskEmail" placeholder="Optional — your email or teammate" />
+            </label>
+            <div class="task-actions">
+              <button class="button primary" type="submit">Save task</button>
+              <button id="cancelEditBtn" class="button secondary hidden" type="button">Cancel edit</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="header-row">
+            <div>
+              <h2>Task timeline</h2>
+              <p class="note">A live countdown and alarm activates when a deadline arrives.</p>
+            </div>
+            <span id="taskCount" class="badge">0 tasks</span>
+          </div>
+
+          <div id="taskList" class="task-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+</body>
+</html>
+
+
+
+
